@@ -35,8 +35,6 @@ class ProductosController extends Controller
         $producto = new Producto();
         $producto->codigo = $request->codigo;
         $producto->nombre = $request->nombre;
-        $producto->cantidad = $request->cantidad;
-        $producto->precio = $request->precio;
         $producto->save();
 
         $response->data=$producto;
