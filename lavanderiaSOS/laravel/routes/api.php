@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\ProductosController;
+use App\Http\Controllers\v1\ClientesController;
 
 
 
@@ -27,7 +28,7 @@ Route::post("/v1/productos",[ProductosController::class,"store"]);
 Route::put("/v1/productos",[ProductosController::class,"update"]);
 Route::patch("/v1/productos",[ProductosController::class,"patch"]);
 Route::delete("v1/productos",[ProductosController::class,"delete"]);
-    
+
 Route::get("/v1/cliente",[ClientesController::class,"getAll"]);
 Route::get("/v1/cliente/{id}",[ClientesController::class,"getItem"]);
 Route::post("/v1/cliente",[ClientesController::class,"store"]);
