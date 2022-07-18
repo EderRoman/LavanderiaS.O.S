@@ -35,8 +35,12 @@ class ProductosController extends Controller
         $response->success=true;
 
         $producto = new Producto();
-        $producto->codigo = $request->codigo;
+        $producto->fecha = $request->fecha;
+        $producto->dni = $request->dni;
         $producto->nombre = $request->nombre;
+        $producto->celular = $request->celular;
+        $producto->correo = $request->correo;
+        $producto->dirección = $request->dirección;
         $producto->save();
 
         $response->data=$producto;
@@ -51,8 +55,12 @@ class ProductosController extends Controller
 
         $producto = Producto::find($request->id);
 
-        $producto->codigo = $request->codigo;
+        $producto->fecha = $request->fecha;
+        $producto->dni = $request->dni;
         $producto->nombre = $request->nombre;
+        $producto->celular = $request->celular;
+        $producto->correo = $request->correo;
+        $producto->dirección = $request->dirección;
         $producto->save();
 
         $response->data = $producto;
