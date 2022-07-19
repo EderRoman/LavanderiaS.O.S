@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Models\v1\Cliente;
+=======
+use App\Models\v1\cliente;
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -13,7 +17,11 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success=true;
 
+<<<<<<< HEAD
         $clientes = Cliente::all();
+=======
+        $clientes = cliente::all();
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
 
         $response->data=$clientes;
         return response()->json($response,200);
@@ -24,7 +32,11 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success=true;
 
+<<<<<<< HEAD
         $clientes = Cliente::find($id);
+=======
+        $clientes = cliente::find($id);
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
         $response->data = $clientes;
 
         return response()->json($response,200);
@@ -35,13 +47,21 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success=true;
 
+<<<<<<< HEAD
         $clientes = new Cliente();
         $clientes->fecha = $request->fecha;
+=======
+        $clientes = new Producto();
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
         $clientes->dirección = $request->dirección;
+<<<<<<< HEAD
+=======
+        $clientes->fecha = $request->fecha;
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
         $clientes->save();
 
         $response->data=$clientes;
@@ -54,15 +74,25 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success = true;
 
+<<<<<<< HEAD
         $clientes = Cliente::find($request->id);
 
         $clientes->fecha = $request->fecha;
+=======
+        $producto = Producto::find($request->id);
+
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
         $clientes->dirección = $request->dirección;
+<<<<<<< HEAD
         $clientes->save();
+=======
+        $clientes->fecha = $request->fecha;
+        $producto->save();
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
 
         $response->data = $clientes;
 
@@ -74,6 +104,7 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success = true;
 
+<<<<<<< HEAD
         $clientes = Cliente::find($request->id);
 
         if(isset($request->fecha))
@@ -97,6 +128,19 @@ class ClientesController extends Controller
         $clientes->save();
 
         $response->data = $clientes;
+=======
+        $clientes = cliente::find($request->id);
+
+        if(isset($request->codigo))
+        $producto->codigo = $request->codigo;
+
+        if (isset($request->nombre))
+        $clientes->nombre = $request->nombre;
+
+        $clientes->save();
+
+        $clientes->data = $clientes;
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
 
         return response()->json($clientes,200);
     }
@@ -108,7 +152,11 @@ class ClientesController extends Controller
 
         $response_code;
 
+<<<<<<< HEAD
         $clientes = Cliente::find($id);
+=======
+        $clientes = cliente::find($id);
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f
 
         if($clientes)
         {
@@ -124,5 +172,10 @@ class ClientesController extends Controller
 
     }
 
+<<<<<<< HEAD
    
 }    
+=======
+
+}
+>>>>>>> e6244e4b3e441f79e13e9b4ff9f45895a16d242f

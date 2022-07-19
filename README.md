@@ -1,1 +1,0 @@
-# LavanderiaS.O.S..
