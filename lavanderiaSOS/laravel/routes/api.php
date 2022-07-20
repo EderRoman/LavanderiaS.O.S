@@ -22,16 +22,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Para el llamado de Productos
+
 Route::get("/v1/productos",[ProductosController::class,"getAll"]);
 Route::get("/v1/productos/{id}",[ProductosController::class,"getItem"]);
 Route::post("/v1/productos",[ProductosController::class,"store"]);
 Route::put("/v1/productos",[ProductosController::class,"update"]);
 Route::patch("/v1/productos",[ProductosController::class,"patch"]);
-Route::delete("v1/productos",[ProductosController::class,"delete"]);
 
+<<<<<<< HEAD
 Route::get("/v1/Cliente",[ClientesController::class,"getAll"]);
 Route::get("/v1/cliente/{id}",[ClientesController::class,"getItem"]);
 Route::post("/v1/Cliente",[ClientesController::class,"store"]);
 Route::put("/v1/Cliente",[ClientesController::class,"update"]);
 Route::patch("/v1/Cliente",[ClientesController::class,"patch"]);
 Route::delete("v1/Cliente",[ClientesController::class,"delete"]);
+=======
+Route::delete("v1/productos/{id}",[ProductosController::class,"delete"]);
+    
+//Para el llamado de Clientes
+
+Route::get("/v1/clientes",[ClientesController::class,"getAll"]);
+Route::get("/v1/clientes/{id}",[ClientesController::class,"getItem"]);
+Route::post("/v1/clientes",[ClientesController::class,"store"]);
+Route::put("/v1/clientes",[ClientesController::class,"update"]);
+Route::patch("/v1/clientes",[ClientesController::class,"patch"]);
+Route::delete("v1/clientes/{id}",[ClientesController::class,"delete"]);
+>>>>>>> 97ceb587662c24e4ba399555378930c72b752f05

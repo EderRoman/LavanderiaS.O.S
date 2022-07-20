@@ -37,6 +37,12 @@ class ClientesController extends Controller
         $response->success=true;
 
         $clientes = new Cliente();
+<<<<<<< HEAD
+=======
+        $clientes->fecha = $request->fecha;
+
+        $clientes = new Cliente();
+>>>>>>> 97ceb587662c24e4ba399555378930c72b752f05
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
@@ -56,6 +62,13 @@ class ClientesController extends Controller
         $response->success = true;
 
         $clientes = Cliente::find($request->id);
+<<<<<<< HEAD
+=======
+
+        $clientes->fecha = $request->fecha;
+
+        $producto = Producto::find($request->id);
+>>>>>>> 97ceb587662c24e4ba399555378930c72b752f05
 
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
@@ -78,14 +91,24 @@ class ClientesController extends Controller
 
         if(isset($request->fecha))
         $clientes->fecha = $request->fecha;
+<<<<<<< HEAD
 
         if (isset($request->dni))
         $clientes->dni = $request->dni;
+=======
+>>>>>>> 97ceb587662c24e4ba399555378930c72b752f05
 
-        if (isset($request->nombre))
+        if (isset($request->dni)) 
+        $clientes->dni = $request->dni;
+        
+        if (isset($request->nombre)) 
         $clientes->nombre = $request->nombre;
 
+<<<<<<< HEAD
         if (isset($request->celular))
+=======
+        if (isset($request->celular)) 
+>>>>>>> 97ceb587662c24e4ba399555378930c72b752f05
         $clientes->celular = $request->celular;
 
         if(isset($request->correo))
@@ -127,4 +150,8 @@ class ClientesController extends Controller
         }
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 97ceb587662c24e4ba399555378930c72b752f05
