@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\v1\cliente;
+use App\Models\v1\Cliente;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -13,7 +13,7 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success=true;
 
-        $clientes = cliente::all();
+        $clientes = Cliente::all();
 
         $response->data=$clientes;
         return response()->json($response,200);
@@ -24,7 +24,8 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success=true;
 
-        $clientes = cliente::find($id);
+
+        $clientes = Cliente::find($id);
         $response->data = $clientes;
 
         return response()->json($response,200);
@@ -35,13 +36,13 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success=true;
 
-        $clientes = new Producto();
+        $clientes = new Cliente();
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
         $clientes->dirección = $request->dirección;
-        $clientes->fecha = $request->fecha;
+
         $clientes->save();
 
         $response->data=$clientes;
@@ -54,15 +55,14 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success = true;
 
-        $producto = Producto::find($request->id);
+        $clientes = Cliente::find($request->id);
 
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
         $clientes->dirección = $request->dirección;
-        $clientes->fecha = $request->fecha;
-        $producto->save();
+        $clientes->save();
 
         $response->data = $clientes;
 
@@ -74,15 +74,31 @@ class ClientesController extends Controller
         $response = new \stdClass();
         $response->success = true;
 
-        $clientes = cliente::find($request->id);
+        $clientes = Cliente::find($request->id);
 
-        if(isset($request->codigo))
-        $producto->codigo = $request->codigo;
+        if(isset($request->fecha))
+        $clientes->fecha = $request->fecha;
+
+        if (isset($request->dni))
+        $clientes->dni = $request->dni;
 
         if (isset($request->nombre))
         $clientes->nombre = $request->nombre;
 
+        if (isset($request->celular))
+        $clientes->celular = $request->celular;
+
+        if(isset($request->correo))
+        $clientes->correo = $request->correo;
+
+        if(isset($request->dirección))
+        $clientes->dirección = $request->dirección;
+
         $clientes->save();
+
+        $response->data = $clientes;
+
+        $clientes = cliente::find($request->id);
 
         $clientes->data = $clientes;
 
@@ -96,7 +112,7 @@ class ClientesController extends Controller
 
         $response_code;
 
-        $clientes = cliente::find($id);
+        $clientes = Cliente::find($id);
 
         if($clientes)
         {
@@ -111,6 +127,4 @@ class ClientesController extends Controller
         }
 
     }
-
-
 }

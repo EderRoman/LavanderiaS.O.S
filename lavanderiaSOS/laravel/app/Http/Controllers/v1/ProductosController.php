@@ -4,6 +4,7 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\v1\Producto;
+use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
@@ -78,13 +79,13 @@ class ProductosController extends Controller
         if(isset($request->fecha))
         $productos->fecha = $request->fecha;
 
-        if (isset($request->dni)) 
+        if (isset($request->dni))
         $productos->dni = $request->dni;
-        
-        if (isset($request->nombre)) 
+
+        if (isset($request->nombre))
         $productos->nombre = $request->nombre;
 
-        if (isset($request->celular)) 
+        if (isset($request->celular))
         $productos->celular = $request->celular;
 
         if(isset($request->correo))
@@ -123,5 +124,5 @@ class ProductosController extends Controller
 
     }
 
-   
-}    
+
+}

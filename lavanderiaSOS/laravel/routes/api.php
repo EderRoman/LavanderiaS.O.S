@@ -29,9 +29,9 @@ Route::put("/v1/productos",[ProductosController::class,"update"]);
 Route::patch("/v1/productos",[ProductosController::class,"patch"]);
 Route::delete("v1/productos",[ProductosController::class,"delete"]);
 
-Route::get("/v1/cliente",[ClientesController::class,"getAll"]);
+Route::get("/v1/Cliente",[ClientesController::class,"getAll"]);
 Route::get("/v1/cliente/{id}",[ClientesController::class,"getItem"]);
-Route::post("/v1/cliente",[ClientesController::class,"store"]);
-Route::put("/v1/cliente",[ClientesController::class,"update"]);
-Route::patch("/v1/cliente",[ClientesController::class,"patch"]);
-Route::delete("v1/cliente",[ClientesController::class,"delete"]);
+Route::post("/v1/Cliente",[ClientesController::class,"store"]);
+Route::put("/v1/Cliente",[ClientesController::class,"update"]);
+Route::patch("/v1/Cliente",[ClientesController::class,"patch"]);
+Route::delete("v1/Cliente",[ClientesController::class,"delete"]);
