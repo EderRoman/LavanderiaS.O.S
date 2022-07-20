@@ -25,7 +25,7 @@ class ClientesController extends Controller
         $response->success=true;
 
 
-        $clientes = cliente::find($id);
+        $clientes = Cliente::find($id);
         $response->data = $clientes;
 
         return response()->json($response,200);
