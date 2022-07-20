@@ -39,14 +39,13 @@ class ClientesController extends Controller
         $clientes = new Cliente();
         $clientes->fecha = $request->fecha;
 
-        $clientes = new Producto();
+        $clientes = new Cliente();
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
         $clientes->dirección = $request->dirección;
 
-        $clientes->fecha = $request->fecha;
         $clientes->save();
 
         $response->data=$clientes;
@@ -71,9 +70,6 @@ class ClientesController extends Controller
         $clientes->correo = $request->correo;
         $clientes->dirección = $request->dirección;
         $clientes->save();
-
-        $clientes->fecha = $request->fecha;
-        $producto->save();
 
         $response->data = $clientes;
 
@@ -110,14 +106,6 @@ class ClientesController extends Controller
         $response->data = $clientes;
 
         $clientes = cliente::find($request->id);
-
-        if(isset($request->codigo))
-        $producto->codigo = $request->codigo;
-
-        if (isset($request->nombre))
-        $clientes->nombre = $request->nombre;
-
-        $clientes->save();
 
         $clientes->data = $clientes;
 
