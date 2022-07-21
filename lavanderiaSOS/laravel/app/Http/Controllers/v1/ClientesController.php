@@ -37,7 +37,7 @@ class ClientesController extends Controller
         $response->success=true;
 
         $clientes = new Cliente();
-        $clientes->fecha = $request->fecha;
+
 
         $clientes = new Cliente();
         $clientes->dni = $request->dni;
@@ -60,8 +60,6 @@ class ClientesController extends Controller
 
         $clientes = Cliente::find($request->id);
 
-        $clientes->fecha = $request->fecha;
-
         $producto = Producto::find($request->id);
 
         $clientes->dni = $request->dni;
@@ -83,7 +81,7 @@ class ClientesController extends Controller
 
         $clientes = Cliente::find($request->id);
 
-        if (isset($request->dni)) 
+        if (isset($request->dni))
         $clientes->dni = $request->dni;
         
         if (isset($request->nombre)) 

@@ -56,7 +56,6 @@ class ProductosController extends Controller
 
         $productos = Producto::find($request->id);
 
-        $productos->fecha = $request->fecha;
         $productos->dni = $request->dni;
         $productos->nombre = $request->nombre;
         $productos->celular = $request->celular;
@@ -76,16 +75,13 @@ class ProductosController extends Controller
 
         $productos = Producto::find($request->id);
 
-        if(isset($request->fecha))
-        $productos->fecha = $request->fecha;
-
-        if (isset($request->dni)) 
+        if (isset($request->dni))
         $productos->dni = $request->dni;
-        
-        if (isset($request->nombre)) 
+
+        if (isset($request->nombre))
         $productos->nombre = $request->nombre;
 
-        if (isset($request->celular)) 
+        if (isset($request->celular))
         $productos->celular = $request->celular;
 
         if(isset($request->correo))
@@ -124,5 +120,5 @@ class ProductosController extends Controller
 
     }
 
-   
-}    
+
+}
