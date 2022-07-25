@@ -38,8 +38,6 @@ class ClientesController extends Controller
 
         $clientes = new Cliente();
 
-
-        $clientes = new Cliente();
         $clientes->dni = $request->dni;
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
