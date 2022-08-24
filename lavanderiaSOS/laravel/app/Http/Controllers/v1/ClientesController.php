@@ -15,12 +15,12 @@ class ClientesController extends Controller
         $fecha_inicio = $request->fecha_inicio;
         $fecha_fin = $request->fecha_fin;
 
-        $categoria = $request->categorias;
+        //$categoria = $request->categorias;
 
-        if(!isset($categoria))
+        /*if(!isset($categoria))
             $categoria = "%";
         else
-            $categoria = "%".$categoria."%";
+            $categoria = "%".$categoria."%";*/
 
         if(!isset($fecha_inicio))
             $fecha_inicio = "2022-01-01 00:00:00";
@@ -44,18 +44,17 @@ class ClientesController extends Controller
         })
         ->select("clientes.*")
 
-        ->with("categorias")
 
         ->where("created_at",">=",$fecha_inicio." 00:00:00")
         ->where("created_at","<=",$fecha_fin." 23:59:59")
-        ->where(function($q) use($categoria){
+        /*->where(function($q) use($categoria){
 
             if ($categoria!="%") {
                 $q->where("categorias.nombre","like",$categoria);
             }
-        })
+        })*/
         //->where("categorias.nombre","like",$categoria)
-        ->leftJoin("categorias","clientes.categorias_id","=","categorias.id")
+        //->leftJoin("categorias","clientes.categorias_id","=","categorias.id")
         ->get();
 
         $response->data=$clientes;
@@ -85,7 +84,7 @@ class ClientesController extends Controller
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
-        $clientes->dirección = $request->dirección;
+        $clientes->direccion = $request->direccion;
 
         $clientes->save();
 
