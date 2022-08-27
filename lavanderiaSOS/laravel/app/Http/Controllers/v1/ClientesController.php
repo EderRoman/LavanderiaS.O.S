@@ -104,7 +104,7 @@ class ClientesController extends Controller
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
-        $clientes->dirección = $request->dirección;
+        $clientes->direccion = $request->direccion;
         $clientes->save();
 
         $response->data = $clientes;
@@ -131,8 +131,8 @@ class ClientesController extends Controller
         if(isset($request->correo))
         $clientes->correo = $request->correo;
 
-        if(isset($request->dirección))
-        $clientes->dirección = $request->dirección;
+        if(isset($request->direccion))
+        $clientes->direccion = $request->direccion;
 
         $clientes->save();
 
