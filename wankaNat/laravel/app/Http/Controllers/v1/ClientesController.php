@@ -15,6 +15,16 @@ class ClientesController extends Controller
         $fecha_inicio = $request->fecha_inicio;
         $fecha_fin = $request->fecha_fin;
 
+<<<<<<< HEAD:wankaNat/laravel/app/Http/Controllers/v1/ClientesController.php
+=======
+        //$categoria = $request->categorias;
+
+        /*if(!isset($categoria))
+            $categoria = "%";
+        else
+            $categoria = "%".$categoria."%";*/
+
+>>>>>>> 86a5681086035588ac9cd45cc0957053d5a556cf:lavanderiaSOS/laravel/app/Http/Controllers/v1/ClientesController.php
         if(!isset($fecha_inicio))
             $fecha_inicio = "2022-01-01 00:00:00";
 
@@ -40,7 +50,18 @@ class ClientesController extends Controller
 
         ->where("created_at",">=",$fecha_inicio." 00:00:00")
         ->where("created_at","<=",$fecha_fin." 23:59:59")
+<<<<<<< HEAD:wankaNat/laravel/app/Http/Controllers/v1/ClientesController.php
         //->where("categorias.nombre","like",$categoria)
+=======
+        /*->where(function($q) use($categoria){
+
+            if ($categoria!="%") {
+                $q->where("categorias.nombre","like",$categoria);
+            }
+        })*/
+        //->where("categorias.nombre","like",$categoria)
+        //->leftJoin("categorias","clientes.categorias_id","=","categorias.id")
+>>>>>>> 86a5681086035588ac9cd45cc0957053d5a556cf:lavanderiaSOS/laravel/app/Http/Controllers/v1/ClientesController.php
         ->get();
 
         $response->data=$clientes;
@@ -90,7 +111,7 @@ class ClientesController extends Controller
         $clientes->nombre = $request->nombre;
         $clientes->celular = $request->celular;
         $clientes->correo = $request->correo;
-        $clientes->dirección = $request->dirección;
+        $clientes->direccion = $request->direccion;
         $clientes->save();
 
         $response->data = $clientes;
@@ -117,8 +138,8 @@ class ClientesController extends Controller
         if(isset($request->correo))
         $clientes->correo = $request->correo;
 
-        if(isset($request->dirección))
-        $clientes->dirección = $request->dirección;
+        if(isset($request->direccion))
+        $clientes->direccion = $request->direccion;
 
         $clientes->save();
 
